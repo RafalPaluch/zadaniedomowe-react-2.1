@@ -1,4 +1,5 @@
 import React from 'react'
+import {Table} from 'react-bootstrap'
 const players = [
     {username:"Del Piero", points:10},
     {username:"Zidane", points:20},
@@ -17,13 +18,26 @@ const Players = () => (
         <h1>
             Players
         </h1>
-        <ul>
-            {players.map(
-                player=>
-                <li>{player.username} score: {player.points}</li>
+        <Table>
+            <thead>
+            <tr>
+            <th>Name</th>
+            <th>Score</th>
+            </tr>
+            </thead>
+<tbody>
+{players.map(
+    player => (
+     <tr>
+    <td>{player.username}</td>
+    <td>{player.points}</td>
+     </tr>
 
-            )}
-        </ul>
+    ))}
+
+
+</tbody>
+        </Table>
     </div>
 )
 
