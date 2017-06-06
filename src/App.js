@@ -6,6 +6,12 @@ import './App.css'
 import players from './players.js'
 
 class App extends Component {
+    constructor(props){
+        super(props)
+        this.state ={
+            highlightingColor : 'red'
+        }
+    }
   render() {
     return (
         <div>
@@ -23,8 +29,8 @@ class App extends Component {
             {players.map(
                 (player) => (
                     <tr key={player.id}>
-                      <td style ={{color : player.points >100? 'red': player.points}}>{player.username}</td>
-                      <td style ={{color : player.points >100? 'red': player.points}}>{player.points}<td></td></td>
+                      <td style ={{color : player.points >100? this.state.highlightingColor: player.points}}>{player.username}</td>
+                      <td style ={{color : player.points >100? this.state.highlightingColor: player.points}}>{player.points}<td></td></td>
                     </tr>))}
 
 
