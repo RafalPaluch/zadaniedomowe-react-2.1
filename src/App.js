@@ -20,7 +20,9 @@ class App extends Component {
 
     }
     componentWillMount() {
-
+fetch(`${process.env.PUBLIC_URL}/data/players.json`
+).then(response => response.json()
+).then((players)=>{this.setState({players:players});})
     }
 
     render() {
@@ -46,7 +48,7 @@ class App extends Component {
                     </tr>
                     </thead>
                     <tbody>
-                    {players.map(
+                    {this.state.players.map(
                         (player) => (
                             <tr key={player.id}>
                                 <td style ={{color : player.points >100? this.state.highlightingColor: 'blue'}}>{player.username}</td>
