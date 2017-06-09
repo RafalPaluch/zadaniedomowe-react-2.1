@@ -4,14 +4,14 @@ import {Table, Button, ButtonToolbar} from'react-bootstrap';
 
 import './App.css'
 
-import players from './players.json'
+
 
 class App extends Component {
     constructor(props){
         super(props)
         this.state ={
             highlightingColor : 'red',
-            players:null
+            players:[];
         }
 
 
