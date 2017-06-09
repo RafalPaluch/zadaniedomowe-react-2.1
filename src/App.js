@@ -10,13 +10,19 @@ class App extends Component {
     constructor(props){
         super(props)
         this.state ={
-            highlightingColor : 'red'
+            highlightingColor : 'red',
+            players:null
         }
 
 
 
 
+
     }
+    componentWillMount() {
+
+    }
+
     render() {
         return (
             <div>
