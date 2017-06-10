@@ -11,7 +11,7 @@ class App extends Component {
         super(props)
         this.state ={
             highlightingColor : 'red',
-            players:[];
+            players:null
         }
 
 
@@ -48,7 +48,7 @@ fetch(`${process.env.PUBLIC_URL}/data/players.json`
                     </tr>
                     </thead>
                     <tbody>
-                    {this.state.players.map(
+                    {this.state.players ===null? null:this.state.players.map(
                         (player) => (
                             <tr key={player.id}>
                                 <td style ={{color : player.points >100? this.state.highlightingColor: 'blue'}}>{player.username}</td>
@@ -58,10 +58,10 @@ fetch(`${process.env.PUBLIC_URL}/data/players.json`
 
                     <tr>
                         <td>Total score</td>
-                        <td>{players.map((player)=>player.points).reduce((a,b)=>(a+b))}</td>
+                        <td>{this.state.players ===null? null:this.state.players.map((player)=>player.points).reduce((a,b)=>(a+b))}</td>
                     </tr>
                     <tr><td>Average</td>
-                        <td>{players.map((player)=>player.points).reduce((a,b)=>(a+b))/players.length}</td></tr>
+                        <td>{this.state.players ===null? null:this.state.players.map((player)=>player.points).reduce((a,b)=>(a+b))/this.state.players.length}</td></tr>
 
 
 
